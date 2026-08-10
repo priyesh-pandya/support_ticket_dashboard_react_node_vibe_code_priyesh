@@ -1,6 +1,10 @@
 # Priyesh Support — Setup & Run Guide
 
-![Website Screenshot](frontend/public/Home Page.jpeg)
+![Home Page](frontend/public/Home%20Page.jpeg)
+
+![Home Page](frontend/public/Create%20Support%20Ticket.jpeg)
+
+![Home Page](frontend/public/Ticket%20Detail%20Page.jpeg)
 
 
 A full-stack support ticket dashboard: React (Vite) + Tailwind + Framer Motion frontend,
