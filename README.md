@@ -1,5 +1,8 @@
 # Priyesh Support — Setup & Run Guide
 
+![Website Screenshot](frontend/public/Home Page.jpeg)
+
+
 A full-stack support ticket dashboard: React (Vite) + Tailwind + Framer Motion frontend,
 Express + MongoDB (Mongoose) backend.
 
