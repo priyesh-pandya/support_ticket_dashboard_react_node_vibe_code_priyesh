@@ -134,6 +134,33 @@ priyesh-support-ticket-sys/
 └── .gitignore
 ```
 
+## Restrict CORS
+Restrict CORS to your React origin, but that is not real security. Here's the full picture for your project.
+
+In server.js you have a wide-open CORS setup:
+```
+app.use(cors());  // any origin allowed
+```
+
+Restrict CORS to your React frontend
+
+```
+// backend/server.js
+const corsOptions = {
+  origin: ["http://localhost:5173"],        // your React dev server
+  methods: ["GET", "POST", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsOptions));
+```
+
+Note: 
+CORS is a browser-only rule. It only stops other websites' JavaScript from reading API responses. It does not stop:
+You can sill use Postman , A backend script (Node/Python), browser to call backend API
+
+ What actually secures an API: Use authentication, API key + rate limiting.
+
+
 To run it yourself:
 
 cd backend && npm run dev
