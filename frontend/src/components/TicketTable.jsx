@@ -7,7 +7,7 @@ import { SkeletonCard } from "./SkeletonRow.jsx";
 import EmptyState from "./EmptyState.jsx";
 import TicketCard from "./TicketCard.jsx";
 
-export default function TicketTable({ tickets, loading, onCreate, onDelete }) {
+export default function TicketTable({ tickets, loading, onCreate, onDelete, filtered = false, onClearFilters }) {
   if (loading) {
     return (
       <>
@@ -39,7 +39,7 @@ export default function TicketTable({ tickets, loading, onCreate, onDelete }) {
   }
 
   if (!tickets.length) {
-    return <EmptyState onCreate={onCreate} />;
+    return <EmptyState onCreate={onCreate} filtered={filtered} onClearFilters={onClearFilters} />;
   }
 
   return (

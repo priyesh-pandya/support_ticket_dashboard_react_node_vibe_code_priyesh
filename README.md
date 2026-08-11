@@ -95,22 +95,31 @@ Request body for `POST /api/tickets`:
 }
 ```
 
-Request body for `GET /api/tickets/`:
+### Query parameters — `GET /api/tickets`
+
+All parameters are optional and can be combined:
+
+| Param      | Values                        | Default     | Description                                      |
+|------------|-------------------------------|-------------|--------------------------------------------------|
+| `search`   | text                          | —           | Case-insensitive match on `subject` or `description` |
+| `status`   | `Open`, `In Progress`, `Resolved` | —        | Filter by status                                 |
+| `priority` | `Low`, `Medium`, `High`       | —           | Filter by priority                               |
+| `sortBy`   | `createdAt`, `subject`, `priority` | `createdAt` | Field to sort by                              |
+| `sortOrder`| `asc`, `desc`                 | `desc`      | Sort direction                                   |
+
+Example:
 ```
-e.g.
-http://localhost:5000/api/tickets
+http://localhost:5000/api/tickets?search=test-data&status=Open&priority=Low&sortBy=priority&sortOrder=asc
 ```
 
-Request body for `GET /api/tickets/<id>`:
-```
-e.g.
-http://localhost:5000/api/tickets/6a79b8ba115adc4a6b8fe69e
-```
+### Example requests
 
-Request body for `DELETE /api/tickets/<id>`:
 ```
-e.g.
-http://localhost:5000/api/tickets/6a79b8ba115adc4a6b8fe69e
+GET    /api/tickets
+GET    /api/tickets?status=Open&priority=High
+GET    /api/tickets?search=test-data
+GET    /api/tickets/6a79b8ba115adc4a6b8fe69e
+DELETE /api/tickets/6a79b8ba115adc4a6b8fe69e
 ```
 
 

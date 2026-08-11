@@ -2,15 +2,25 @@ import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Header from "./components/Header.jsx";
 import TicketTable from "./components/TicketTable.jsx";
+import TicketFilters from "./components/TicketFilters.jsx";
 import NewTicketModal from "./components/NewTicketModal.jsx";
 import Toast from "./components/Toast.jsx";
 import TicketDetail from "./pages/TicketDetail.jsx";
-import useTickets from "./hooks/useTickets.js";
+import useTickets, { isFilterActive } from "./hooks/useTickets.js";
 import { HiOutlinePlus } from "react-icons/hi2";
 import { motion } from "framer-motion";
 
 function HomePage() {
-  const { tickets, loading, submitting, addTicket, removeTicket } = useTickets();
+  const {
+    tickets,
+    loading,
+    submitting,
+    filters,
+    updateFilters,
+    resetFilters,
+    addTicket,
+    removeTicket,
+  } = useTickets();
   const [modalOpen, setModalOpen] = useState(false);
   const [toasts, setToasts] = useState([]);
 
@@ -69,7 +79,22 @@ function HomePage() {
           </button>
         </motion.div>
 
-        <TicketTable tickets={tickets} loading={loading} onCreate={() => setModalOpen(true)} onDelete={handleDelete} />
+        <TicketFilters
+          filters={filters}
+          onChange={updateFilters}
+          onReset={resetFilters}
+          resultCount={tickets.length}
+          loading={loading}
+        />
+
+        <TicketTable
+          tickets={tickets}
+          loading={loading}
+          filtered={isFilterActive(filters)}
+          onClearFilters={resetFilters}
+          onCreate={() => setModalOpen(true)}
+          onDelete={handleDelete}
+        />
       </main>
 
       <NewTicketModal

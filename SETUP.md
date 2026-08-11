@@ -94,6 +94,7 @@ priyesh-support-ticket-sys/
 ├── backend/    Express + MongoDB API
 ├── frontend/   React + Vite + Tailwind dashboard
 └── SETUP.md
+└── SETUP.md
 ```
 
 
@@ -118,7 +119,6 @@ SETUP.md at the project root documents install/run steps for both halves and the
 One note: I put your real MONGO_URI directly in backend/.env, which is gitignored, so it won't get committed if you initialize git later — but flagging it since it's a live credential.
 
 To run it yourself:
-
 
 cd backend && npm run dev
 cd frontend && npm run dev   # in a second terminal
