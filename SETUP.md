@@ -98,6 +98,15 @@ priyesh-support-ticket-sys/
 ```
 
 
+## 
+
+OmniRoute is a highly popular, open-source AI gateway and proxy that routes multi-provider LLMs through a single OpenAI-compatible local endpoint (http://localhost:20128/v1). It aggregates over 340+ AI providers (including 90+ completely free tiers), pooling together billions of free monthly tokens and intelligently switching accounts or models to eliminate rate limits, quota caps, and downtime.
+
+# 1. Install globally
+npm install -g omniroute
+
+# 2. Start the gateway server
+omniroute
 
 
 
